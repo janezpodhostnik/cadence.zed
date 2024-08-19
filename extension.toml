@@ -12,3 +12,7 @@ repository = "https://github.com/janezpodhostnik/cadence.zed"
 [grammars.cadence]
 repository = "https://github.com/bluesign/cadence-tree-sitter.git"
 commit = "1d6a4fbd3e068e01546474589c777498d4ccfd72"
+
+[language_servers.cadence]
+name = "cadence"
+language = "Cadence"
