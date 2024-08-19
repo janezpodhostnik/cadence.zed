@@ -1,0 +1,18 @@
+id = "cadence"
+name = "Cadence Syntax Highlighting"
+version = "0.0.1"
+schema_version = 1
+authors = [
+    "Janez Podhostnik <janez.podhostnik@google.com>",
+    "Bastian Mueller <bastian@turbolent.com>",
+]
+description = "Provides syntax highlighting for the Cadence programming language."
+repository = "https://github.com/janezpodhostnik/cadence.zed"
+
+[grammars.cadence]
+repository = "https://github.com/bluesign/cadence-tree-sitter.git"
+commit = "1d6a4fbd3e068e01546474589c777498d4ccfd72"
+
+[language_servers.cadence]
+name = "cadence"
+language = "Cadence"
