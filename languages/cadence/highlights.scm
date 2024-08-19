@@ -1,36 +1,83 @@
-[
- (blockComment)
- (lineComment)
-] @comment @spell
 
-(compositeDeclaration) @type
-(importDeclaration) @include
-(identifier) @variable
-(addressLocation) @variable
-(field) @field
 
-(stringLiteral) @string
-(typeAnnotation) @type
+(TypeIdentifier) @type
+(TypeBuiltin) @type.builtin
+(Identifier) @variable
+((Identifier) @variable.builtin
+  (#eq? @variable.builtin "self"))
 
-(parameter identifier: (identifier) @parameter)
+(InitDeclaration) @constructor
+(SpecialFunctionDeclaration) @function.builtin
+(SpecialFunctionIdentifier) @function.builtin
+(FunctionDeclaration name: (Identifier) @function)
+
+(StringLiteral) @string
+(PathExpression) @string
+(PathExpression (Identifier) @string)
+(Address) @number
+(IntegerLiteral) @number
+(FixedPointLiteral) @number
+(BooleanLiteral) @boolean
+
+(Parameter Identifier: (Identifier) @variable.parameter)
 [
     "var"
     "let"
 ] @type.qualifier
 
-(access) @keyword
+(Access) @keyword
+(transactionDeclaration) @keyword
+(EntitlementIdentifier) @label
+
+(InterfaceMarker) @keyword
+(CompositeDeclaration) @keyword
 
 [
-  "contract"
-  "event"
-  "struct"
-  "resource"
-  "interface"
-  "enum"
+    "event"
+    "enum"
+    "fun"
+    "pre"
+    "post"
+    "execute"
+    "return"
+    "import"
+    "from"
+    "view"
+    "create"
+    "if"
+    "mapping"
 ] @keyword
 
-(invokeExpression target: (identifierExpression) @function.call) ; foo()
-(invokeExpression target: (memberAccessExpression) @function.call) ; foo()
+[
+    "("
+    ")"
+    "}"
+    "{"
+    "["
+    "]"
+] @punctuation.bracket
 
+[
+    "."
+    ","
+    ";"
+    "?"
+    ":"
+] @punctuation.delimiter
 
-(integerLiteral) @number
+(MultiplicativeOp) @operator
+(AdditiveOp) @operator
+(BitwiseShiftOp) @operator
+(BitwiseAnd) @operator
+(BitwiseXor) @operator
+(BitwiseOr) @operator
+(RelationalOP) @operator
+(NilCoalescing) @operator
+(EqualityOp) @operator
+(LogicalAnd) @operator
+(LogicalOr) @operator
+(Transfer) @operator
+(SwapStatement) @operator
+(Move) @operator
+
+(Comment) @comment
